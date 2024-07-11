@@ -8,6 +8,7 @@ function Header() {
       <h1>My Simple React App</h1>
       <nav>
         <Link to="/">Home</Link> | <Link to="/login">Login</Link> | <Link to="/signin">SignIn</Link> | <Link to="/signup">SignUp</Link> | <Link to="/authdetails">Check</Link>
+        | <Link to="/photoupload">PhotoUpload</Link>  | <Link to="/photogallery">PhotoGallery</Link>  | <Link to="/display">Display</Link> 
       </nav>
     </header>
   );
