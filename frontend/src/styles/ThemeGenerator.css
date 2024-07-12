@@ -1,0 +1,47 @@
+/* ThemeGenerator.css */
+.theme-container {
+    background-color: #f8f9fa; /* Light background for contrast */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  .theme-container h1 {
+    color: #ff006e; /* Pink color for the header */
+    font-size: 2.5em; /* Larger font size for the header */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .theme-container .section {
+    margin-bottom: 20px;
+  }
+  
+  .theme-container .section h2 {
+    color: #3a86ff; /* Blue color for section headers */
+    font-size: 1.8em; /* Slightly larger font size for section headers */
+    border-bottom: 2px solid #ffbe0b; /* Yellow underline for section headers */
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .theme-container .section p {
+    color: #333; /* Dark gray for text */
+    font-size: 1.2em; /* Slightly larger font size for text */
+    line-height: 1.6;
+  }
+  
+  .theme-container .highlight {
+    background-color: #fb5607; /* Orange highlight for key points */
+    color: #fff; /* White text on orange background */
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .theme-container .note {
+    color: #8338ec; /* Purple color for notes */
+    font-style: italic;
+  }
+  

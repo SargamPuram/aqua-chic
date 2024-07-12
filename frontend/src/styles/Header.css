@@ -1,0 +1,37 @@
+/* Header.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f4f4f4; /* Light background for contrast */
+    border-bottom: 2px solid #ff006e; /* Pink underline for the header */
+  }
+  
+  .header-title {
+    font-size: 1.8em;
+    color: #ff006e; /* Pink color for the title */
+    margin: 0;
+  }
+  
+  .header-nav {
+    display: flex;
+    gap: 10px; /* Space between navigation links */
+  }
+  
+  .header-nav a {
+    color: #3a86ff; /* Blue color for links */
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 10px;
+  }
+  
+  .header-nav a:hover {
+    color: #fb5607; /* Orange color for hover effect */
+  }
+  
+  .header-nav a.active {
+    font-weight: bold;
+    color: #ff006e; /* Pink color for active link */
+  }
+  

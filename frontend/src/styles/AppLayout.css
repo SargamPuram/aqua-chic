@@ -1,0 +1,13 @@
+/* AppLayout.css */
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .app-main {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for the main content area */
+  }
+  

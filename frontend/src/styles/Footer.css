@@ -1,0 +1,29 @@
+/* Footer.css */
+.footer {
+    background-color: #ffbe0b; /* Pink background */
+    color: #ff006e; /* White text */
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #fb5607; /* Orange top border */
+    size: 15em;
+  }
+  
+  .footer p {
+    margin: 10px 0;
+    font-size: 0.9em;
+  }
+  
+  .footer a {
+    color: #ffffff; /* White color for links */
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+
+  }
+  

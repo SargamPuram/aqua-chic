@@ -1,22 +1,18 @@
 import React from 'react';
 import Header from './Header';
-import '../App.css';
-import { Link } from 'react-router-dom'; // Import Link
+import Footer from './Footer';
+import '../styles/AppLayout.css'; // Ensure this CSS file is present
 
-const AppLayout = ({ children }) => {
+function AppLayout({ children }) {
   return (
-    <div>
+    <div className="app-layout">
       <Header />
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/photoupload">Upload Photo</Link></li>
-          <li><Link to="/photogallery">Photo Gallery</Link></li>
-        </ul>
-      </nav>
-      <main>{children}</main>
+      <main className="app-main">
+        {children}
+      </main>
+      <Footer />
     </div>
   );
-};
+}
 
 export default AppLayout;
