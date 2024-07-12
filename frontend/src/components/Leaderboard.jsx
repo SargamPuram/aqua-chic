@@ -1,29 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import '../styles/Leaderboard.css';
 
-const Leaderboard = ({ photos = [] }) => {
-    // Ensure photos is an array
-    if (!Array.isArray(photos)) {
-        return <div>Error: Photos data is not available.</div>;
-    }
+const Leaderboard = () => {
+  const [winners, setWinners] = useState([]);
 
-    // Sort photos by likes in descending order
-    const sortedPhotos = [...photos].sort((a, b) => b.likes - a.likes);
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      try {
+        const response = await axios.get('http://localhost:3001/leaderboard');
+        console.log('Leaderboard data:', response.data); // Log the response data
+        const sortedData = response.data.sort((a, b) => b.likes - a.likes);
+        setWinners(sortedData.slice(0, 3)); // Display top 3
+      } catch (error) {
+        console.error('Error fetching leaderboard data:', error);
+      }
+    };
 
-    return (
-        <div>
-            <h1>Photo Leaderboard</h1>
-            <div className="leaderboard">
-                {sortedPhotos.map((photo, index) => (
-                    <div key={index} className="leaderboard-item">
-                        <img src={photo.url} alt={`Photo ${index + 1}`} />
-                        <div className="leaderboard-details">
-                            <span>Likes: {photo.likes}</span>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
+    fetchLeaderboard();
+  }, []);
+
+  return (
+    <div className="leaderboard">
+      <h1>Top 3 Photos</h1>
+      <ul>
+        {winners.map((winner, index) => (
+          <li key={winner.photoId} className="leaderboard-item">
+            <div className="rank">{index + 1}</div>
+            <img 
+              src={winner.photoUrl} 
+              alt={`Photo ${index + 1}`} 
+              className="photo" 
+              onError={() => console.error(`Failed to load image: ${winner.photoUrl}`)} // Add error logging
+            />
+            <div className="likes">Likes: {winner.likes}</div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default Leaderboard;
+
+

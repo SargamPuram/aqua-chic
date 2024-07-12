@@ -10,7 +10,11 @@ const PhotoGallery = () => {
     async function fetchPhotos() {
       try {
         const response = await axios.get('http://localhost:3001/photos');
-        setPhotos(response.data.photos); // Assuming the server returns an array of image URLs under 'photos'
+        const photosWithLikes = await Promise.all(response.data.photos.map(async (photo) => {
+          const likesResponse = await axios.get(`http://localhost:3001/likes/${encodeURIComponent(photo.key)}`);
+          return { ...photo, likes: likesResponse.data.likes };
+        }));
+        setPhotos(photosWithLikes);
       } catch (error) {
         setError('Error fetching photos.');
       } finally {
@@ -20,6 +24,15 @@ const PhotoGallery = () => {
 
     fetchPhotos();
   }, []);
+
+  const handleLike = async (key) => {
+    try {
+      const response = await axios.post('http://localhost:3001/like-photo', { photoId: key });
+      setPhotos(photos.map(photo => photo.key === key ? { ...photo, likes: response.data.likes } : photo));
+    } catch (error) {
+      console.error('Error liking photo:', error);
+    }
+  };
 
   return (
     <div>
@@ -31,10 +44,15 @@ const PhotoGallery = () => {
           photos.map((photo, index) => (
             <div key={index} style={{ margin: '10px' }}>
               <img
-                src={photo}
+                src={photo.url}
                 alt={`Uploaded ${index}`}
                 style={{ maxWidth: '200px', maxHeight: '200px', objectFit: 'cover' }}
               />
+              <div>
+                <button onClick={() => handleLike(photo.key)}>
+                  Like {photo.likes}
+                </button>
+              </div>
             </div>
           ))
         ) : (
