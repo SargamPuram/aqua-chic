@@ -6,7 +6,7 @@ function ThemeGenerator() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3001/generate-theme')
+    fetch('/.netlify/functions/generate-theme')
       .then(response => response.json())
       .then(data => {
         setTheme(data.theme.text);
