@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '../styles/PhotoGallery.css'; // Import the CSS file
 
 const PhotoGallery = () => {
   const [photos, setPhotos] = useState([]);
@@ -16,7 +17,7 @@ const PhotoGallery = () => {
         }));
         setPhotos(photosWithLikes);
       } catch (error) {
-        setError('Error fetching photos.');
+        setError('Oops! Something went wrong while fetching photos.');
       } finally {
         setLoading(false);
       }
@@ -35,28 +36,28 @@ const PhotoGallery = () => {
   };
 
   return (
-    <div>
-      <h1>Photo Gallery</h1>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+    <div className="photo-gallery-container">
+      <h1 className="gallery-heading">🌟 Awesome Photo Gallery 🌟</h1>
+      {loading && <p className="loading-text">Fetching the coolest pics...</p>}
+      {error && <p className="error-text">{error}</p>}
+      <div className="photo-grid">
         {photos.length > 0 ? (
           photos.map((photo, index) => (
-            <div key={index} style={{ margin: '10px' }}>
+            <div key={index} className="photo-card">
               <img
                 src={photo.url}
                 alt={`Uploaded ${index}`}
-                style={{ maxWidth: '200px', maxHeight: '200px', objectFit: 'cover' }}
+                className="photo-img"
               />
-              <div>
-                <button onClick={() => handleLike(photo.key)}>
-                  Like {photo.likes}
+              <div className="photo-actions">
+                <button onClick={() => handleLike(photo.key)} className="like-button">
+                  💖 {photo.likes}
                 </button>
               </div>
             </div>
           ))
         ) : (
-          <p>No photos available.</p>
+          <p className="no-photos-text">No photos available. Time to upload some cool snaps!</p>
         )}
       </div>
     </div>

@@ -1,0 +1,127 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .home-container {
+    text-align: center;
+    color: #333;
+  }
+  
+  .home-header {
+    background-color: #ff006e; /* Bright pink for a trendy feel */
+    color: white;
+    padding: 2rem 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow for text */
+  }
+  
+  .home-header h1 {
+    margin: 0;
+    font-size: 3rem; /* Larger font size for impact */
+    font-family: 'Poppins', sans-serif; /* Trendy, modern font */
+    font-weight: bold;
+    color: white; /* Text color */
+    position: relative;
+  }
+  
+  .home-header h1::before {
+    content: attr(data-text); /* Duplicate text content */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: black; /* Border color */
+    z-index: -1; /* Place behind the text */
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 1); /* Creates a border effect */
+    transform: scale(1.01); /* Slightly larger to create border effect */
+  }
+  
+  .home-header p {
+    margin: 0.5rem 0 0;
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif; /* Modern, clean font */
+  }
+  
+  .home-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    background-color: #f8f9fa; /* Soft background color to reduce the gaudiness of orange */
+    color: #333;
+  }
+  
+  .intro-text {
+    max-width: 600px;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif; /* Stylish and readable font */
+  }
+  
+  .intro-text h2 {
+    color: #ff006e; /* Highlight color for headings */
+    font-size: 2.5rem; /* Larger font size for prominence */
+    font-weight: bold;
+  }
+  
+  .intro-text p {
+    font-size: 1.2rem;
+  }
+  
+  .intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .home-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 1rem;
+    background-color: #e9ecef; /* Soft gray to tone down the brightness */
+    color: #333;
+  }
+  
+  .home-footer {
+    background-color: #3a86ff;
+    color: white;
+    padding: 1rem 0;
+  }
+  
+  /* Adding hover effects for feature cards */
+  .feature-card {
+    background: #3a86ff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 250px;
+    flex: 1 1 200px;
+    margin: 1rem;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px); /* Lift the card */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Increase shadow */
+    background: linear-gradient(145deg, #8338ec, #3a86ff); /* Subtle gradient background */
+  }
+  
+  .feature-card h3 {
+    color: #8338ec; /* Accent color for headings */
+    margin: 0;
+  }
+  
+  .feature-card p {
+    margin: 0.5rem 0 0;
+  }
+
+section {
+    background-color: #3a86ff;
+  }
+  

@@ -1,0 +1,85 @@
+.photo-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('../assets/Photo.jpeg') no-repeat center center;
+    background-size: contain; /* Ensure the image fits within the container without cropping */
+    background-attachment: fixed; /* Keep the background fixed during scroll */
+    background-position: center; /* Center the background image */
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem;
+}
+
+.upload-form {
+    background: rgba(0, 0, 0, 0.6); /* Dark gray background with more transparency */
+    color: #f0f0f0; /* Light color for text on dark background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Slightly lighter shadow for better contrast */
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.upload-form h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #ff006e; /* Vibrant color for header */
+}
+
+.upload-form .fun-message {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #d0d0d0; /* Softer gray for a softer look */
+}
+
+.upload-form input[type="file"] {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 2px solid #3a86ff; /* Blue border for file input */
+    border-radius: 5px;
+    background-color: white; /* White background for file input */
+    color: #333; /* Dark text color for readability */
+}
+
+.upload-form input[type="file"]:focus {
+    border-color: #ff006e; /* Pink border on focus */
+    outline: none;
+    background-color: #e0e7ff; /* Light blue background on focus */
+}
+
+.upload-form button {
+    background-color: #ff006e;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.upload-form button:hover {
+    background-color: #e6005c; /* Slightly toned-down hover color */
+}
+
+.upload-form button:disabled {
+    background-color: #d0d0d0; /* Gray background when disabled */
+    cursor: not-allowed;
+}
+
+.upload-form .error-message {
+    color: #d0d0d0; /* Softer gray for error messages */
+}
+
+.upload-form img {
+    margin-top: 1rem;
+    border-radius: 10px;
+    border: 3px solid #ff006e; /* Pink border around the image */
+    max-width: 100%;
+    max-height: 500px;
+}

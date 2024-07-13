@@ -12,7 +12,6 @@ function Header() {
         <Link to="/signup">SignUp</Link>
         <Link to="/photoupload">PhotoUpload</Link>
         <Link to="/photogallery">PhotoGallery</Link>
-        <Link to="/display">Display</Link>
         <Link to="/leaderboard">LeaderBoard</Link>
         <Link to="/theme-generator">Theme Generator</Link>
       </nav>

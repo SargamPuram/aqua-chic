@@ -6,9 +6,9 @@ function Footer() {
     <footer className="footer">
       <p>&copy; 2024 Aqua-Chic. All rights reserved.</p>
       <p>
-        <a href="https://github.com/your-repo" target="_blank" rel="noopener noreferrer">GitHub</a> | 
-        <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer">Twitter</a> |
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/SargamPuram/aqua-chic" target="_blank" rel="noopener noreferrer">GitHub</a> | 
+        <a href="https://x.com/auroraaaa_here" target="_blank" rel="noopener noreferrer">Twitter</a> |
+        <a href="https://www.linkedin.com/in/sargam-puram-188806257/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </p>
     </footer>
   );

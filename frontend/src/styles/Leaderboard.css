@@ -1,41 +1,99 @@
-.leaderboard {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .leaderboard h1 {
-    margin-bottom: 20px;
-  }
-  
-  .leaderboard ul {
-    list-style: none;
+/* General Styling */
+body {
+    font-family: 'Crimson Text', serif; /* Use Crimson Text font */
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333;
+    margin: 0;
     padding: 0;
   }
   
+  /* Leaderboard Container Styling */
+  .leaderboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height */
+   background-color: black;
+    background-size: cover; /* Ensure the image covers the container */
+    color: #333; /* Dark text color for better readability */
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  /* Title Styling */
+  .leaderboard h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #ffffff; /* White color for title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for readability */
+  }
+  
+  /* List Styling */
+  .leaderboard ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    gap: 2rem; /* Space between items */
+  }
+  
+  /* Leaderboard Item Styling */
   .leaderboard-item {
+    background: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    padding: 1.5rem;
+    text-align: center;
+    width: 150px; /* Fixed width for consistency */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Space between elements inside the item */
+  }
+  
+  /* Hover Effect */
+  .leaderboard-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    background: rgba(255, 255, 255, 1); /* Fully opaque background on hover */
+    transition: transform 0.3s, background 0.3s;
+  }
+  
+  /* Rank Styling */
+  .rank {
+    font-size: 2rem; /* Larger font size for rank */
+    font-weight: bold;
+    background: #ff006e; /* Red background */
+    color: #ffffff; /* White text color */
+    padding: 0.5rem 1rem; /* Padding for size */
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    justify-content: center;
+    width: 2.5rem; /* Adjust width */
+    height: 2.5rem; /* Adjust height */
   }
   
-  .leaderboard-item .rank {
-    font-size: 1.5em;
-    margin-right: 20px;
+  /* Photo Styling */
+  .photo {
+    width: 120px; /* Fixed width */
+    height: 120px; /* Fixed height */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    object-fit: cover; /* Ensure image covers the area */
   }
   
-  .leaderboard-item .photo {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    margin-right: 20px;
-  }
-  
-  .leaderboard-item .likes {
-    margin-left: auto;
+  /* Likes Styling */
+  .likes {
+    font-size: 1.2rem; /* Slightly larger font size */
     font-weight: bold;
+    color: #ff006e; /* Red color for likes */
+    display: flex;
+    align-items: center;
+  }
+  
+  .likes::before {
+    content: '❤️';
+    margin-right: 0.5rem;
   }
   

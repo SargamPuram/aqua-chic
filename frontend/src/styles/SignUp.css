@@ -1,0 +1,73 @@
+.sign-up-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('../assets/SignUp.jpeg') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the whole container */
+    background-attachment: fixed; /* Keep the background fixed during scroll */
+    background-position: center; /* Center the background image */
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem;
+}
+
+.sign-up-form {
+    background: rgba(0, 0, 0, 0.7); /* Black background with slight opacity for better contrast */
+    color: #f0f0f0; /* Light color for text on black background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Slightly stronger shadow for contrast */
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.sign-up-form h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #ff006e; /* Vibrant but toned down */
+}
+
+.sign-up-form .fun-message {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #d0d0d0; /* Softer gray for better readability */
+}
+
+.input-field {
+    width: calc(100% - 2rem);
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Light gray border to stand out against white background */
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    background-color: white; /* White background for input fields */
+    color: #333; /* Dark text color for readability */
+}
+
+.input-field:focus {
+    border-color: #3a86ff; /* Blue border on focus */
+    outline: none;
+    background-color: #f0f4f8; /* Light grayish-blue background on focus */
+}
+
+.submit-button {
+    background-color: #ff006e;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #e6005c; /* Slightly toned-down hover color */
+}
+
+.submit-button:active {
+    background-color: #c6004d; /* Slightly darker active color */
+}

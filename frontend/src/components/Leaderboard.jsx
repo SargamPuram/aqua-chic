@@ -33,7 +33,7 @@ const Leaderboard = () => {
               className="photo" 
               onError={() => console.error(`Failed to load image: ${winner.photoUrl}`)} // Add error logging
             />
-            <div className="likes">Likes: {winner.likes}</div>
+            <div className="likes">❤️ {winner.likes}</div>
           </li>
         ))}
       </ul>
@@ -42,5 +42,4 @@ const Leaderboard = () => {
 };
 
 export default Leaderboard;
-
 

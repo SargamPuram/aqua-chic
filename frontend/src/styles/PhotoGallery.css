@@ -1,0 +1,73 @@
+.photo-gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start of the container */
+    min-height: 100vh; /* Ensure the container takes full viewport height */
+    background: url('../assets/Photogallery.jpg') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the whole container */
+    color: #333; /* Dark text color for better readability */
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem;
+}
+
+.gallery-heading {
+    font-size: 2.5rem;
+    margin: 1rem 0; /* Add margin to separate from other elements */
+    color: black; /* Vibrant color for the title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for better readability */
+    align-self: flex-start; /* Align the heading to the start of the flex container */
+}
+
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Space between images */
+    justify-content: center;
+    margin-top: 2rem; /* Add margin-top to separate from the heading */
+}
+
+.photo-card {
+    background: rgba(255, 255, 255, 0.8); /* Light background for image containers */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for elegant look */
+    overflow: hidden;
+    text-align: center;
+    width: 200px; /* Fixed width for consistency */
+}
+
+.photo-img {
+    width: 100%;
+    height: 150px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensure image covers the area */
+}
+
+.photo-actions {
+    margin-top: 0.5rem;
+}
+
+.like-button {
+    background-color: #ff006e;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.like-button:hover {
+    background-color: #e6005c; /* Slightly toned-down hover color */
+}
+
+.like-button:active {
+    background-color: #c6004d; /* Slightly darker active color */
+}
+
+.no-photos-text {
+    color: #333;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+

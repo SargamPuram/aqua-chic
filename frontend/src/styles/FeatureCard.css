@@ -1,0 +1,27 @@
+.feature-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 250px;
+    flex: 1 1 200px;
+    margin: 1rem;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px); /* Lift the card */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Increase shadow */
+    background: linear-gradient(145deg, #f9f9f9, #ffffff); /* Subtle gradient background */
+  }
+  
+  .feature-card h3 {
+    color: #8338ec;
+    margin: 0;
+  }
+  
+  .feature-card p {
+    margin: 0.5rem 0 0;
+  }
+  

@@ -1,47 +1,136 @@
-/* ThemeGenerator.css */
+/* General Styling for Theme Generator */
 .theme-container {
-    background-color: #f8f9fa; /* Light background for contrast */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
-  }
-  
-  .theme-container h1 {
-    color: #ff006e; /* Pink color for the header */
-    font-size: 2.5em; /* Larger font size for the header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height */
+    background-color: #fff; /* White background */
+    background-image: url('https://i.pinimg.com/564x/6e/72/4d/6e724ddf4bf44bbc2101c04bd6a2fbe0.jpg'); 
+    background-position: center; /* Center the background image */
+    color: #333; /* Dark text color */
+    font-family: 'Crimson Text', serif; /* Use Crimson Text font */
+    padding: 2rem;
     text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .theme-container .section {
-    margin-bottom: 20px;
-  }
-  
-  .theme-container .section h2 {
-    color: #3a86ff; /* Blue color for section headers */
-    font-size: 1.8em; /* Slightly larger font size for section headers */
-    border-bottom: 2px solid #ffbe0b; /* Yellow underline for section headers */
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .theme-container .section p {
-    color: #333; /* Dark gray for text */
-    font-size: 1.2em; /* Slightly larger font size for text */
-    line-height: 1.6;
-  }
-  
-  .theme-container .highlight {
-    background-color: #fb5607; /* Orange highlight for key points */
-    color: #fff; /* White text on orange background */
-    padding: 5px 10px;
-    border-radius: 4px;
-  }
-  
-  .theme-container .note {
-    color: #8338ec; /* Purple color for notes */
-    font-style: italic;
-  }
-  
+}
+
+/* Title Styling */
+.theme-title {
+    font-size: 3rem; /* Larger font size for the title */
+    margin-bottom: 2rem; /* Space below the title */
+    color: black; /* Black color for the title */
+    background-color: rgba(247, 237, 226, 0.8); /* Translucent light background for title */
+    padding: 0.5rem 1rem; /* Padding around the title */
+    border-radius: 5px; /* Rounded corners for the title background */
+    font-weight: bold; /* Make the title bold */
+    font-family: 'Playfair Display', cursive; /* Cursive font for title */
+}
+
+/* Content Styling */
+.theme-content {
+    max-width: 800px; /* Constrain the width for better readability */
+    background-color: rgba(253, 255, 252, 0.8); /* Translucent light gray background for content */
+    border-radius: 10px; /* Rounded corners */
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for elegant look */
+    color: #333; /* Dark text color */
+}
+
+/* Heading Styling */
+.theme-heading {
+    font-size: 2rem; /* Font size for headings */
+    margin-bottom: 1rem; /* Space below headings */
+    color: black; /* Red color for headings */
+    font-weight: bold; /* Make headings bold */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font for headings */
+}
+
+/* List Styling */
+.theme-list {
+    list-style-type: disc; /* Disc bullets for lists */
+    padding-left: 1.5rem; /* Indentation for lists */
+    margin: 1rem 0; /* Space around lists */
+}
+
+/* List Item Styling */
+.theme-item {
+    font-size: 1.2rem; /* Font size for list items */
+    margin-bottom: 0.5rem; /* Space below list items */
+    line-height: 1.6; /* Line height for better readability */
+}
+
+/* Theme Color Styling */
+.monochromatic {
+    color: #ff006e; /* Red color for Monochromatic Monday */
+}
+
+.trench {
+    color: #ff7f7f; /* Light red color for Tuesday's Trench */
+}
+
+.wrap {
+    color: #ffb3b3; /* Very light red color for Wednesday's Wrap */
+}
+
+.tailored {
+    color: #ff6666; /* Medium red color for Thursday's Tailored */
+}
+
+.flair {
+    color: #e6005c; /* Slightly darker red color for Friday's Flair */
+}
+
+.statement {
+    color: #c6004d; /* Dark red color for Saturday's Statement */
+}
+
+.simplicity {
+    color: #b3004d; /* Very dark red color for Sunday's Simplicity */
+}
+
+.mood-board {
+    color: #ff006e; /* Red color for Monday's Mood Board */
+}
+
+.texture {
+    color: #ff7f7f; /* Light red color for Tuesday's Texture */
+}
+
+.whim {
+    color: #ffb3b3; /* Very light red color for Wednesday's Whim */
+}
+
+.throwback {
+    color: #ff6666; /* Medium red color for Thursday's Throwback */
+}
+
+.florals {
+    color: #e6005c; /* Slightly darker red color for Friday's Florals */
+}
+
+.stripes {
+    color: #c6004d; /* Dark red color for Saturday's Stripes */
+}
+
+.statement-sleeves {
+    color: #b3004d; /* Very dark red color for Sunday's Statement Sleeves */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .theme-title {
+        font-size: 2.5rem; /* Smaller font size for mobile */
+    }
+
+    .theme-content {
+        padding: 1rem; /* Reduced padding for mobile */
+    }
+
+    .theme-heading {
+        font-size: 1.5rem; /* Smaller font size for mobile headings */
+    }
+
+    .theme-item {
+        font-size: 1rem; /* Smaller font size for mobile list items */
+    }
+}

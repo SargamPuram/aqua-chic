@@ -1,0 +1,73 @@
+.sign-in-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('../assets/SignIn.jpeg') no-repeat center center;
+    background-size: cover; /* Ensure the image covers the whole container */
+    background-attachment: fixed; /* Keep the background fixed during scroll */
+    background-position: center; /* Center the background image */
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem;
+}
+
+.sign-in-form {
+    background: rgba(255, 255, 255, 0.8); /* Light background with slight opacity for contrast */
+    color: #333; /* Dark color for text on a light background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Softer shadow for better contrast */
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.sign-in-form h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #ff006e; /* Vibrant color for header */
+}
+
+.sign-in-form .fun-message {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #555; /* Softer gray for a gentle look */
+}
+
+.input-field {
+    width: calc(100% - 2rem);
+    padding: 0.75rem;
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Light gray border to contrast with the white input background */
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    background-color: white; /* White background for input fields */
+    color: #333; /* Dark text color for readability */
+}
+
+.input-field:focus {
+    border-color: #3a86ff; /* Blue border on focus */
+    outline: none;
+    background-color: #f0f4f8; /* Light grayish-blue background on focus */
+}
+
+.submit-button {
+    background-color: #ff006e;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #e6005c; /* Slightly toned-down hover color */
+}
+
+.submit-button:active {
+    background-color: #c6004d; /* Slightly darker active color */
+}
