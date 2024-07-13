@@ -3,6 +3,7 @@ import '../styles/SignIn.css'; // Updated path for styles
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import AuthDetails from './AuthDetails';
 import { initializeApp } from "firebase/app";
+import firebaseConfig from '../firebaseConfig';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
