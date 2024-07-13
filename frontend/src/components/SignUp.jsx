@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/SignUp.css'; // Ensure correct path for styles
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { initializeApp } from "firebase/app";
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -8,7 +9,9 @@ const SignUp = () => {
   const [error, setError] = useState('');
   const [authUser, setAuthUser] = useState(null);
 
-  const auth = getAuth();
+  const app = initializeApp(firebaseConfig);
+
+  const auth = getAuth(app);
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {

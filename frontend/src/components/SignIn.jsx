@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import '../styles/SignIn.css'; // Updated path for styles
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import AuthDetails from './AuthDetails';
+import { initializeApp } from "firebase/app";
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const auth = getAuth();
+  const app = initializeApp(firebaseConfig);
+
+  const auth = getAuth(app);
 
   const signin = (e) => {
     e.preventDefault();
