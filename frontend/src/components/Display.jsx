@@ -7,7 +7,7 @@ const Display = ({ photos, handleLike }) => {
             <div className="gallery">
                 {photos.map((photo, index) => (
                     <div key={index} className="photo-item">
-                        <img src={photo.url} alt={`Photo ${index + 1}`} />
+                        <img src={photo.url} alt={`Gallery item ${index + 1}`} />
                         <div className="photo-details">
                             <span>Likes: {photo.likes}</span>
                             <button onClick={() => handleLike(index)}>Like</button>

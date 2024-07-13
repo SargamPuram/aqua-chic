@@ -29,7 +29,7 @@ const Leaderboard = () => {
             <div className="rank">{index + 1}</div>
             <img 
               src={winner.photoUrl} 
-              alt={`Photo ${index + 1}`} 
+              alt={`Leaderboard item ${index + 1}`} // Update the alt attribute
               className="photo" 
               onError={() => console.error(`Failed to load image: ${winner.photoUrl}`)} // Add error logging
             />
@@ -42,4 +42,5 @@ const Leaderboard = () => {
 };
 
 export default Leaderboard;
+
 

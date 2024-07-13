@@ -4,7 +4,6 @@ import Home from './components/Home';
 import AppLayout from './components/AppLayout';
 import Login from './components/Login';
 import SignIn from './components/SignIn';
-import app from './firebase';
 import SignUp from './components/SignUp';
 import AuthDetails from './components/AuthDetails';
 import PhotoUpload from './components/PhotoUpload';
