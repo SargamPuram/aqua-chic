@@ -2,13 +2,13 @@ import AWS from 'aws-sdk';
 import 'dotenv/config';
 
 // Load environment variables from .env file
-const { AWS_REGION, AWS_ACCESS_KEY, AWS_SECRET_KEY } = process.env;
+const { MY_AWS_REGION, MY_AWS_ACCESS_KEY, MY_AWS_SECRET_KEY } = process.env;
 
 // Configure AWS SDK for DynamoDB
 AWS.config.update({
-  region: AWS_REGION,
-  accessKeyId: AWS_ACCESS_KEY_ID,
-  secretAccessKey: AWS_SECRET_ACCESS_KEY,
+  region: MY_AWS_REGION,
+  accessKeyId: MY_AWS_ACCESS_KEY_ID,
+  secretAccessKey: MY_AWS_SECRET_ACCESS_KEY,
 });
 
 // Create DynamoDB DocumentClient instance

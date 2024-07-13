@@ -2,14 +2,14 @@ import AWS from 'aws-sdk';
 import 'dotenv/config';
 
 AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_SECRET_KEY,
-  region: process.env.AWS_REGION
+  accessKeyId: process.env.MY_AWS_ACCESS_KEY,
+  secretAccessKey: process.env.MY_AWS_SECRET_KEY,
+  region: process.env.MY_AWS_REGION
 });
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
-const TABLE_NAME = process.env.DYNAMODB_TABLE_NAME || 'Likes';
+const TABLE_NAME = process.env.MY_DYNAMODB_TABLE_NAME || 'Likes';
 
 // Function to like a photo
 const likePhoto = async (photoId) => {
