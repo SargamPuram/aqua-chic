@@ -15,7 +15,7 @@ Aqua Chic is an AI-driven fashion challenge application that allows users to gen
 
 ## Demo
 
-You can visit the live site at [Aqua Chic on Netlify](https://your-netlify-link).
+You can visit the live site at [Aqua Chic on Netlify](https://aqua-chic.netlify.app/).
 
 ## Features
 
