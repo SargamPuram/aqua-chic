@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../styles/PhotoGallery.css'; // Import the CSS file
+import '../styles/PhotoGallery.css';
 
 const PhotoGallery = () => {
   const [photos, setPhotos] = useState([]);
@@ -11,9 +11,10 @@ const PhotoGallery = () => {
     async function fetchPhotos() {
       try {
         const response = await axios.get('https://aqua-chic-production.up.railway.app/photos');
+        const s3BaseUrl = 'https://aqua-chic.s3.amazonaws.com/uploads/';
         const photosWithLikes = await Promise.all(response.data.photos.map(async (photo) => {
           const likesResponse = await axios.get(`https://aqua-chic-production.up.railway.app/likes/${encodeURIComponent(photo.key)}`);
-          return { ...photo, likes: likesResponse.data.likes };
+          return { ...photo, url: `${s3BaseUrl}${photo.filename}`, likes: likesResponse.data.likes };
         }));
         setPhotos(photosWithLikes);
       } catch (error) {
@@ -48,6 +49,7 @@ const PhotoGallery = () => {
                 src={photo.url}
                 alt={`Uploaded ${index}`}
                 className="photo-img"
+                onError={() => console.error(`Failed to load image: ${photo.url}`)}
               />
               <div className="photo-actions">
                 <button onClick={() => handleLike(photo.key)} className="like-button">
@@ -65,3 +67,4 @@ const PhotoGallery = () => {
 };
 
 export default PhotoGallery;
+
