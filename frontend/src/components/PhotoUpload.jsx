@@ -27,7 +27,7 @@ const PhotoUpload = () => {
 
     try {
       // Make the POST request to the backend upload-photo route
-      const response = await axios.post('http://localhost:3001/upload-photo', formData, {
+      const response = await axios.post('https://aqua-chic-production.up.railway.app/upload-photo', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
