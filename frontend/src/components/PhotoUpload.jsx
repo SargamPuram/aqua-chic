@@ -10,10 +10,12 @@ const PhotoUpload = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  // Handle image file change
   function handleImage(e) {
     setImage(e.target.files[0]);
   }
 
+  // Handle image upload
   async function handleApi() {
     if (!image) return;
 
@@ -24,14 +26,18 @@ const PhotoUpload = () => {
     formData.append('photo', image); // Ensure the name matches the backend
 
     try {
+      // Make the POST request to the backend upload-photo route
       const response = await axios.post('http://localhost:3001/upload-photo', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
 
+      // Get the URL of the uploaded photo from the response
       const { data } = response;
       setImageUrl(data.url);
+
+      // Optionally, you could navigate to the PhotoGallery page or another page
       navigate('/photogallery');
     } catch (error) {
       console.error('Error uploading file:', error);
@@ -63,3 +69,5 @@ const PhotoUpload = () => {
 };
 
 export default PhotoUpload;
+
+

@@ -40,14 +40,30 @@ app.get('/generate-theme', async (req, res) => {
 });
 
 app.post('/upload-photo', upload.single('photo'), async (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: 'No file uploaded' });
+  }
+
   try {
-    const url = await uploadPhoto(req.file);
-    res.json({ url });
+    const s3 = new AWS.S3();
+    const photoKey = `${Date.now()}_${req.file.originalname}`;
+
+    const params = {
+      Bucket: process.env.S3_BUCKET_NAME,
+      Key: photoKey,
+      Body: req.file.buffer,
+      ContentType: req.file.mimetype,
+      ACL: 'public-read',
+    };
+    const uploadResult = await s3.upload(params).promise();
+    res.json({ url: uploadResult.Location });
   } catch (error) {
     console.error('Error uploading photo:', error);
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ error: 'Error uploading photo' });
   }
 });
+
+
 
 app.get('/photos', async (req, res) => {
   try {

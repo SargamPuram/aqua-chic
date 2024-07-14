@@ -8,27 +8,27 @@ const PhotoGallery = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchPhotos = async () => {
+    async function fetchPhotos() {
       try {
         const response = await axios.get('https://aqua-chic-production.up.railway.app/photos');
-        // No need to append s3BaseUrl here if `photo.url` is already complete
+        console.log('Fetched photos:', response.data); // Debugging line
         const photosWithLikes = await Promise.all(response.data.photos.map(async (photo) => {
           try {
             const likesResponse = await axios.get(`https://aqua-chic-production.up.railway.app/likes/${encodeURIComponent(photo.key)}`);
             return { ...photo, likes: likesResponse.data.likes };
-          } catch (error) {
-            console.error(`Error fetching likes for ${photo.key}:`, error);
-            return { ...photo, likes: 0 }; // Default to 0 likes if there's an error
+          } catch (likesError) {
+            console.error('Error fetching likes:', likesError);
+            return { ...photo, likes: 0 }; // Fallback to 0 likes if error occurs
           }
         }));
         setPhotos(photosWithLikes);
       } catch (error) {
-        setError('Oops! Something went wrong while fetching photos.');
         console.error('Error fetching photos:', error);
+        setError('Oops! Something went wrong while fetching photos.');
       } finally {
         setLoading(false);
       }
-    };
+    }
 
     fetchPhotos();
   }, []);
@@ -55,11 +55,7 @@ const PhotoGallery = () => {
                 src={photo.url} // Ensure photo.url is correctly set
                 alt={`Uploaded ${index}`}
                 className="photo-img"
-                onError={(e) => {
-                  e.target.onerror = null; // Prevents infinite loop if error persists
-                  e.target.src = 'default-image-url'; // Fallback image URL
-                  console.error(`Failed to load image: ${photo.url}`);
-                }}
+                onError={() => console.error(`Failed to load image: ${photo.url}`)}
               />
               <div className="photo-actions">
                 <button onClick={() => handleLike(photo.key)} className="like-button">
@@ -77,6 +73,7 @@ const PhotoGallery = () => {
 };
 
 export default PhotoGallery;
+
 
 
 
