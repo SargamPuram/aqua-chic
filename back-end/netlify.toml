@@ -1,0 +1,3 @@
+[build]
+  functions = "netlify/functions"
+  publish = "build" # Adjust if needed, typically used for static assets
