@@ -103,32 +103,6 @@ You can visit the live site at [Aqua Chic on Netlify](https://aqua-chic.netlify.
 - **Storage:** AWS S3 for storing uploaded photos
 - **Styling:** CSS, styled-components
 
-## Directory Structure
-
-aqua-chic/
-├── backend/
-│ ├── routes/
-│ ├── models/
-│ ├── controllers/
-│ ├── middleware/
-│ ├── utils/
-│ ├── .env
-│ ├── package.json
-│ └── server.js
-├── frontend/
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── styles/
-│ │ ├── App.jsx
-│ │ ├── index.js
-│ │ └── ThemeGenerator.jsx
-│ ├── public/
-│ ├── .env
-│ ├── package.json
-│ └── README.md
-└── README.md
-
 
 ## Contributing
 
