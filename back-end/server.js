@@ -53,7 +53,6 @@ app.post('/upload-photo', upload.single('photo'), async (req, res) => {
       Key: photoKey,
       Body: req.file.buffer,
       ContentType: req.file.mimetype,
-      ACL: 'public-read',
     };
 
     const uploadResult = await s3.upload(params).promise();
