@@ -28,7 +28,7 @@ const PhotoGallery = () => {
 
   const handleLike = async (key) => {
     try {
-      const response = await axios.post('http://localhost:3001/like-photo', { photoId: key });
+      const response = await axios.post('https://aqua-chic-production.up.railway.app/like-photo', { photoId: key });
       setPhotos(photos.map(photo => photo.key === key ? { ...photo, likes: response.data.likes } : photo));
     } catch (error) {
       console.error('Error liking photo:', error);
