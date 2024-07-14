@@ -83,30 +83,28 @@ app.get('/likes/:photoId', async (req, res) => {
 });
 
 app.get('/leaderboard', async (req, res) => {
-    try {
-      const params = { TableName: 'Likes' };
-      const data = await dynamoDb.scan(params).promise();
-  
-      const transformedData = data.Items.map(item => {
-        const photoId = item.photoId;
-        // Directly use photoId in URL without encoding
-        const photoUrl = `https://aqua-chic.s3.amazonaws.com/${photoId}`;
-        console.log(`Photo URL: ${photoUrl}`); // Log photo URL for debugging
-        return {
-          photoId,
-          photoUrl,
-          likes: item.likes,
-        };
-      });
-  
-      res.status(200).json(transformedData);
-    } catch (error) {
-      console.error('Error retrieving leaderboard data:', error);
-      res.status(500).json({ error: 'Could not retrieve leaderboard data' });
-    }
-  });
-  
-  
+  try {
+    const params = { TableName: 'Likes' };
+    const data = await dynamoDb.scan(params).promise();
+
+    const transformedData = data.Items.map(item => {
+      const photoId = item.photoId;
+      // Directly use photoId in URL without encoding
+      const photoUrl = `https://aqua-chic.s3.amazonaws.com/${photoId}`;
+      console.log(`Photo URL: ${photoUrl}`); // Log photo URL for debugging
+      return {
+        photoId,
+        photoUrl,
+        likes: item.likes,
+      };
+    });
+
+    res.status(200).json(transformedData);
+  } catch (error) {
+    console.error('Error retrieving leaderboard data:', error);
+    res.status(500).json({ error: 'Could not retrieve leaderboard data' });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
