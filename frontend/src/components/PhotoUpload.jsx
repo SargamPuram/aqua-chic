@@ -10,42 +10,42 @@ const PhotoUpload = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  // Handle image file change
-  function handleImage(e) {
+  const handleImage = (e) => {
     setImage(e.target.files[0]);
-  }
+  };
 
-  // Handle image upload
-  async function handleApi() {
+  const handleApi = async () => {
     if (!image) return;
 
     setUploading(true);
     setError('');
 
     const formData = new FormData();
-    formData.append('photo', image); // Ensure the name matches the backend
+    formData.append('photo', image);
 
     try {
-      // Make the POST request to the backend upload-photo route
       const response = await axios.post('https://aqua-chic-production.up.railway.app/upload-photo', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
 
-      // Get the URL of the uploaded photo from the response
       const { data } = response;
       setImageUrl(data.url);
-
-      // Optionally, you could navigate to the PhotoGallery page or another page
       navigate('/photogallery');
     } catch (error) {
       console.error('Error uploading file:', error);
-      setError('Oops! Something went wrong. Please try again.');
+      if (error.response) {
+        setError(`Server responded with status ${error.response.status}: ${error.response.data.error}`);
+      } else if (error.request) {
+        setError('No response from server. Please check your network connection.');
+      } else {
+        setError(`Error in request setup: ${error.message}`);
+      }
     } finally {
       setUploading(false);
     }
-  }
+  };
 
   return (
     <div className="photo-upload-container">
@@ -69,5 +69,6 @@ const PhotoUpload = () => {
 };
 
 export default PhotoUpload;
+
 
 

@@ -55,14 +55,14 @@ app.post('/upload-photo', upload.single('photo'), async (req, res) => {
       ContentType: req.file.mimetype,
       ACL: 'public-read',
     };
+
     const uploadResult = await s3.upload(params).promise();
     res.json({ url: uploadResult.Location });
   } catch (error) {
     console.error('Error uploading photo:', error);
-    res.status(500).json({ error: 'Error uploading photo' });
+    res.status(500).json({ error: error.message });
   }
 });
-
 
 
 app.get('/photos', async (req, res) => {
