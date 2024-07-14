@@ -50,12 +50,24 @@ app.post('/upload-photo', upload.single('photo'), async (req, res) => {
 app.get('/photos', async (req, res) => {
   try {
     const photos = await listPhotos();
-    res.json({ photos });
+    const s3BaseUrl = 'https://aqua-chic.s3.amazonaws.com/uploads/';
+
+    const photosWithLikes = await Promise.all(photos.map(async (photo) => {
+      console.log(`Photo Key: ${photo.key}`); // Log the key for debugging
+      const photoUrl = `${s3BaseUrl}${photo.key}`;
+      console.log(`Photo URL: ${photoUrl}`); // Log the constructed URL
+      
+      const likesResponse = await axios.get(`https://aqua-chic-production.up.railway.app/likes/${encodeURIComponent(photo.key)}`);
+      return { ...photo, url: photoUrl, likes: likesResponse.data.likes };
+    }));
+    
+    res.json({ photos: photosWithLikes });
   } catch (error) {
     console.error('Error listing photos:', error);
     res.status(500).json({ error: error.message });
   }
 });
+
 
 app.post('/like-photo', async (req, res) => {
   const { photoId } = req.body;
