@@ -14,7 +14,7 @@ const PhotoGallery = () => {
         const s3BaseUrl = 'https://aqua-chic.s3.amazonaws.com/uploads/';
         const photosWithLikes = await Promise.all(response.data.photos.map(async (photo) => {
           const likesResponse = await axios.get(`https://aqua-chic-production.up.railway.app/likes/${encodeURIComponent(photo.key)}`);
-          return { ...photo, url: `${s3BaseUrl}${photo.filename}`, likes: likesResponse.data.likes };
+          return { ...photo, likes: likesResponse.data.likes };
         }));
         setPhotos(photosWithLikes);
       } catch (error) {
@@ -46,7 +46,7 @@ const PhotoGallery = () => {
           photos.map((photo, index) => (
             <div key={index} className="photo-card">
               <img
-                src={photo.url}
+                src={photo.url} // Ensure photo.url is correctly set
                 alt={`Uploaded ${index}`}
                 className="photo-img"
                 onError={() => console.error(`Failed to load image: ${photo.url}`)}
@@ -67,4 +67,5 @@ const PhotoGallery = () => {
 };
 
 export default PhotoGallery;
+
 
