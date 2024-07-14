@@ -6,6 +6,8 @@ import multer from 'multer';
 import { generateTheme } from './Themes.js';
 import { uploadPhoto, listPhotos } from './s3.js';
 import { likePhoto, getLikes } from './likes.js';
+import axios from 'axios';
+
 
 AWS.config.update({
   region: process.env.MY_AWS_REGION,
@@ -49,18 +51,16 @@ app.post('/upload-photo', upload.single('photo'), async (req, res) => {
 
 app.get('/photos', async (req, res) => {
   try {
-    const photos = await listPhotos();
-    const s3BaseUrl = 'https://aqua-chic.s3.amazonaws.com/uploads/';
+    const photos = await listPhotos(); // Fetch photos from S3
+    const s3BaseUrl = 'https://aqua-chic.s3.amazonaws.com/'; // Correct base URL
 
+    // Construct photo URLs correctly
     const photosWithLikes = await Promise.all(photos.map(async (photo) => {
-      console.log(`Photo Key: ${photo.key}`); // Log the key for debugging
-      const photoUrl = `${s3BaseUrl}${photo.key}`;
-      console.log(`Photo URL: ${photoUrl}`); // Log the constructed URL
-      
+      const photoUrl = `${s3BaseUrl}${photo.key}`; // Construct URL using base URL and key
       const likesResponse = await axios.get(`https://aqua-chic-production.up.railway.app/likes/${encodeURIComponent(photo.key)}`);
       return { ...photo, url: photoUrl, likes: likesResponse.data.likes };
     }));
-    
+
     res.json({ photos: photosWithLikes });
   } catch (error) {
     console.error('Error listing photos:', error);
