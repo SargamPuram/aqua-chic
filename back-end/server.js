@@ -40,9 +40,9 @@ app.get('/generate-theme', async (req, res) => {
 });
 
 app.post('/upload-photo', upload.single('photo'), async (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ error: 'No file uploaded' });
-  }
+  // if (!req.file) {
+  //   return res.status(400).json({ error: 'No file uploaded' });
+  // }
 
   try {
     const s3 = new AWS.S3();
