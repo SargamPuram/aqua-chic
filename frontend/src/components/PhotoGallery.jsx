@@ -10,9 +10,9 @@ const PhotoGallery = () => {
   useEffect(() => {
     async function fetchPhotos() {
       try {
-        const response = await axios.get('http://localhost:3001/photos');
+        const response = await axios.get('https://aqua-chic-production.up.railway.app/photos');
         const photosWithLikes = await Promise.all(response.data.photos.map(async (photo) => {
-          const likesResponse = await axios.get(`http://localhost:3001/likes/${encodeURIComponent(photo.key)}`);
+          const likesResponse = await axios.get(`https://aqua-chic-production.up.railway.app/likes/${encodeURIComponent(photo.key)}`);
           return { ...photo, likes: likesResponse.data.likes };
         }));
         setPhotos(photosWithLikes);

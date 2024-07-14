@@ -8,7 +8,7 @@ const Leaderboard = () => {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/leaderboard');
+        const response = await axios.get('https://aqua-chic-production.up.railway.app/leaderboard');
         console.log('Leaderboard data:', response.data); // Log the response data
         const sortedData = response.data.sort((a, b) => b.likes - a.likes);
         setWinners(sortedData.slice(0, 3)); // Display top 3
